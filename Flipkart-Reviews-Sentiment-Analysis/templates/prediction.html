@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color:lightsalmon;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color:deepskyblue;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            color: #050505;
+            font-size: 23px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        textarea {
+            width: calc(100% - 40px);
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            resize: none;
+            font-size: 16px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+       
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #b4bf1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if user_review %}
+        <h1>Text Provided by the user:</h1>
+        <h2>{{ user_review }}</h2>
+        {% endif %}
+        <h1>Sentiment of the review:</h1>
+        {% if sentiment == 'Positive' %}
+        <h3 class="positive">{{ sentiment }}</h3>
+        {% elif sentiment == 'Negative' %}
+        <h3 class="negative">{{ sentiment }}</h3>
+        {% else %}
+        <h3>{{ sentiment }}</h3>
+        {% endif %}
+        <a href="{{ url_for('home') }}">Go back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>
+        // Clear the text box when the page loads
+        window.onload = function() {
+            document.getElementById("text").value = "";
+        };
+    </script>
+    <style>
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('https://officechai.com/wp-content/uploads/2015/07/flipkart.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    border-radius: 20px;
+    background-color: red;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 30px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+h1 {
+    color: #333333; /* Dark gray heading */
+    font-size: 28px; /* Reduced font size */
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    color: black; /* Medium gray label color */
+    font-size: 25px; /* Reduced font size */
+    display: block;
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+textarea {
+    width: calc(100% - 40px);
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #cccccc; /* Light gray border */
+    border-radius: 10px;
+    resize: none;
+    font-size: 20px; /* Reduced font size */
+    font-family: 'Arial', sans-serif; /* Consistent font */
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color:lawngreen; /* Green button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px; /* Reduced font size */
+}
+
+input[type="submit"]:hover {
+    background-color:deeppink; /* Darker green hover color */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Analyze your sentiment here, give it a try 🙂 </h1>
+        <form method="POST" action="/predict">
+            <label for="text">Please give your review:</label><br>
+            <textarea id="text" name="input_text" rows="5" cols="20" placeholder="Drop your text here and let's reveal its sentiment.........."></textarea><br><br>
+            <input type="submit" value="Predict Sentiment 🔍">
+        </form>
+        {% if clear_text %}
+        <script>
+            // Clear the text box after showing the sentiment
+            document.getElementById("text").value = "";
+        </script>
+        {% endif %}
+    </div>
+</body>
+</html>
